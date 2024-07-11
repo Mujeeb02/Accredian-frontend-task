@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast'; // Ensure proper import
 
 const validationSchema = Yup.object({
   referrerName: Yup.string().required('Required'),
@@ -14,12 +14,16 @@ const validationSchema = Yup.object({
 const ReferModal = ({ handleClose }) => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}`, values);
-      toast("Referral successful");
+      // Assuming VITE_API_URL is correctly defined in your environment
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}`, values);
+      console.log(response.data);
+      // Display success toast notification
+      toast.success('Referral successful');
       resetForm();
       handleClose();
     } catch (error) {
-      alert('Error submitting referral. Please try again.');
+      console.error('Error submitting referral:', error);
+      toast.error('Error submitting referral. Please try again.');
     } finally {
       setSubmitting(false);
     }
