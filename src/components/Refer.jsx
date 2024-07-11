@@ -4,7 +4,7 @@ import { FaFilePen } from "react-icons/fa6";
 import { FaWallet } from "react-icons/fa";
 
 
-const Hero_Next = () => {
+const Hero_Next = ({ handleOpenModal }) => {
     return (
         <div className='w-full h-[585px] flex flex-col items-center mt-12 bg-[#EEF5FF] relative'>
             <h1 className='text-[27.66px] text-[#1A202C] pt-4'>
@@ -31,7 +31,7 @@ const Hero_Next = () => {
                     </h1>
                 </div>
             </div>
-            <button className="w-[192px] h-[54px] bg-[#1A73E8] rounded-[8px] text-[#FFFFFF] text-[20px] leading-[24px] font-[400] flex items-center justify-center mt-4">
+            <button onClick={handleOpenModal} className="w-[192px] h-[54px] bg-[#1A73E8] rounded-[8px] text-[#FFFFFF] text-[20px] leading-[24px] font-[400] flex items-center justify-center mt-4">
                 Refer Now
             </button>
         </div>

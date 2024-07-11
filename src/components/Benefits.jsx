@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Programs = () => {
+const Programs = ({ handleOpenModal }) => {
   const programs = [
     { name: "Professional Certificate Program in Product Management", referrerBonus: "₹ 7,000", refereeBonus: "₹ 9,000" },
     { name: "PG Certificate Program in Strategic Product Management", referrerBonus: "₹ 9,000", refereeBonus: "₹ 11,000" },
@@ -54,7 +54,7 @@ const Programs = () => {
             </tbody>
           </table>
           <div className="text-center mt-4">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded">Refer and earn</button>
+            <button  onClick={handleOpenModal} className="bg-blue-500 text-white px-4 py-2 rounded">Refer and earn</button>
           </div>
         </div>
       </div>
