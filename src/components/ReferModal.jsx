@@ -11,10 +11,11 @@ const validationSchema = Yup.object({
   refereeEmail: Yup.string().email('Invalid email address').required('Required'),
 });
 
+API_URL=process.env.API_URL;
 const ReferModal = ({ handleClose }) => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      await axios.post('http://localhost:5000/api/referrals', values);
+      await axios.post(`${API_URL}`, values);
       toast("Referral successful");
       resetForm();
       handleClose();
